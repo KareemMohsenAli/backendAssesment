@@ -43,6 +43,7 @@ export class DepartmentController {
         });
         return;
       }
+      console.log(department);
 
       res.json({
         success: true,

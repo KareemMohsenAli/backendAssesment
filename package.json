@@ -4,9 +4,9 @@
   "description": "Professional Employee Management System with TypeScript, Express, and MySQL",
   "main": "dist/server.js",
   "scripts": {
-    "dev": "nodemon src/server.ts",
+    "dev": "node api.js && nodemon src/server.ts",
     "build": "tsc",
-    "start": "node dist/server.js",
+    "start": "node api.js && node dist/server.js",
     "migrate": "npx sequelize-cli db:migrate",
     "migrate:undo": "npx sequelize-cli db:migrate:undo",
     "seed": "npx sequelize-cli db:seed:all",
@@ -15,7 +15,14 @@
     "lint": "eslint src/**/*.ts",
     "lint:fix": "eslint src/**/*.ts --fix"
   },
-  "keywords": ["employee", "management", "typescript", "express", "mysql", "sequelize"],
+  "keywords": [
+    "employee",
+    "management",
+    "typescript",
+    "express",
+    "mysql",
+    "sequelize"
+  ],
   "author": "Professional Developer",
   "license": "MIT",
   "dependencies": {

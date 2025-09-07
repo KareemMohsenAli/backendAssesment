@@ -9,6 +9,7 @@ export class EmployeeController {
     validate(employeeValidation.create),
     async (req: Request, res: Response, next: NextFunction): Promise<void> => {
       try {
+        console.log(req.body);
         const employee = await EmployeeService.createEmployee(req.body);
         
         res.status(201).json({

@@ -57,10 +57,6 @@ jspm_packages/
 .yarn-integrity
 
 # dotenv environment variables file
-.env
-.env.test
-.env.production
-.env.local
 
 # parcel-bundler cache
 .cache
@@ -130,7 +126,6 @@ jspm_packages/
 .yarn-integrity
 
 # dotenv environment variables file
-.env
 
 # IDE files
 .vscode/
@@ -163,3 +158,4 @@ exports/
 test-results/
 coverage/
 
+config.bat

@@ -1,0 +1,714 @@
+{
+  "info": {
+    "name": "Employee Management System API",
+    "description": "Complete API collection for Employee Management System with TypeScript, Express, and MySQL",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "version": "1.0.0"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:3000",
+      "type": "string"
+    }
+  ],
+  "item": [
+    {
+      "name": "Health Check",
+      "item": [
+        {
+          "name": "Get API Status",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/health",
+              "host": ["{{baseUrl}}"],
+              "path": ["health"]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Departments",
+      "item": [
+        {
+          "name": "Create Department",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Engineering\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/departments",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "departments"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get All Departments",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/departments",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "departments"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get All Departments (Paginated)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/departments?page=1&limit=5",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "departments"],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "key": "limit",
+                  "value": "5"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Search Departments",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/departments?search=Engineering",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "departments"],
+              "query": [
+                {
+                  "key": "search",
+                  "value": "Engineering"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Department by ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/departments/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "departments", "1"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update Department",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Software Engineering\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/departments/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "departments", "1"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete Department",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/departments/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "departments", "1"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Department with Employees",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/departments/1/employees",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "departments", "1", "employees"]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Employees",
+      "item": [
+        {
+          "name": "Create Employee",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"John Doe\",\n  \"email\": \"john.doe@company.com\",\n  \"departmentId\": 1,\n  \"salary\": 75000.00\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/employees",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "employees"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get All Employees",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/employees",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "employees"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get All Employees (Paginated)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/employees?page=1&limit=10",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "employees"],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "key": "limit",
+                  "value": "10"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Filter Employees by Department",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/employees?departmentId=1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "employees"],
+              "query": [
+                {
+                  "key": "departmentId",
+                  "value": "1"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Search Employees",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/employees?search=John",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "employees"],
+              "query": [
+                {
+                  "key": "search",
+                  "value": "John"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Combined Filters",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/employees?page=1&limit=5&departmentId=1&search=John",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "employees"],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "key": "limit",
+                  "value": "5"
+                },
+                {
+                  "key": "departmentId",
+                  "value": "1"
+                },
+                {
+                  "key": "search",
+                  "value": "John"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Employee by ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/employees/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "employees", "1"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update Employee",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"John Smith\",\n  \"salary\": 80000.00\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/employees/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "employees", "1"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete Employee",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/employees/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "employees", "1"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Employees by Department",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/employees/department/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "employees", "department", "1"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Employees by Department (Paginated)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/employees/department/1?page=1&limit=5&search=John",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "employees", "department", "1"],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "key": "limit",
+                  "value": "5"
+                },
+                {
+                  "key": "search",
+                  "value": "John"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Employee Statistics",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/employees/statistics",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "employees", "statistics"]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Export",
+      "item": [
+        {
+          "name": "Export Employees as CSV",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/employees/export?format=csv",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "employees", "export"],
+              "query": [
+                {
+                  "key": "format",
+                  "value": "csv"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Export Employees as PDF",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/employees/export?format=pdf",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "employees", "export"],
+              "query": [
+                {
+                  "key": "format",
+                  "value": "pdf"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Export Employees by Department (CSV)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/employees/export?format=csv&departmentId=1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "employees", "export"],
+              "query": [
+                {
+                  "key": "format",
+                  "value": "csv"
+                },
+                {
+                  "key": "departmentId",
+                  "value": "1"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Export Employees by Department (PDF)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/employees/export?format=pdf&departmentId=1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "employees", "export"],
+              "query": [
+                {
+                  "key": "format",
+                  "value": "pdf"
+                },
+                {
+                  "key": "departmentId",
+                  "value": "1"
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Sample Data",
+      "item": [
+        {
+          "name": "Create Sample Departments",
+          "item": [
+            {
+              "name": "Create Engineering Department",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"Engineering\"\n}"
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/api/departments",
+                  "host": ["{{baseUrl}}"],
+                  "path": ["api", "departments"]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Create Marketing Department",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"Marketing\"\n}"
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/api/departments",
+                  "host": ["{{baseUrl}}"],
+                  "path": ["api", "departments"]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Create HR Department",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"Human Resources\"\n}"
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/api/departments",
+                  "host": ["{{baseUrl}}"],
+                  "path": ["api", "departments"]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Create Finance Department",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"Finance\"\n}"
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/api/departments",
+                  "host": ["{{baseUrl}}"],
+                  "path": ["api", "departments"]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "Create Sample Employees",
+          "item": [
+            {
+              "name": "Create John Doe (Engineering)",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"John Doe\",\n  \"email\": \"john.doe@company.com\",\n  \"departmentId\": 1,\n  \"salary\": 75000.00\n}"
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/api/employees",
+                  "host": ["{{baseUrl}}"],
+                  "path": ["api", "employees"]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Create Jane Smith (Engineering)",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"Jane Smith\",\n  \"email\": \"jane.smith@company.com\",\n  \"departmentId\": 1,\n  \"salary\": 80000.00\n}"
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/api/employees",
+                  "host": ["{{baseUrl}}"],
+                  "path": ["api", "employees"]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Create Mike Johnson (Marketing)",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"Mike Johnson\",\n  \"email\": \"mike.johnson@company.com\",\n  \"departmentId\": 2,\n  \"salary\": 65000.00\n}"
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/api/employees",
+                  "host": ["{{baseUrl}}"],
+                  "path": ["api", "employees"]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Create Sarah Wilson (HR)",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"Sarah Wilson\",\n  \"email\": \"sarah.wilson@company.com\",\n  \"departmentId\": 3,\n  \"salary\": 60000.00\n}"
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/api/employees",
+                  "host": ["{{baseUrl}}"],
+                  "path": ["api", "employees"]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Create David Brown (Finance)",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"David Brown\",\n  \"email\": \"david.brown@company.com\",\n  \"departmentId\": 4,\n  \"salary\": 70000.00\n}"
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/api/employees",
+                  "host": ["{{baseUrl}}"],
+                  "path": ["api", "employees"]
+                }
+              },
+              "response": []
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+
